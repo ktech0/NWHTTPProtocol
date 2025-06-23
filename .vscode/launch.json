@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:NWHTTPProtocol}",
+            "name": "Debug samplehttpd",
+            "program": "${workspaceFolder:NWHTTPProtocol}/.build/debug/samplehttpd",
+            "preLaunchTask": "swift: Build Debug samplehttpd"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:NWHTTPProtocol}",
+            "name": "Release samplehttpd",
+            "program": "${workspaceFolder:NWHTTPProtocol}/.build/release/samplehttpd",
+            "preLaunchTask": "swift: Build Release samplehttpd"
+        }
+    ]
+}

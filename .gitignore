@@ -2,6 +2,7 @@
 *.xcuserdatad
 Package.resolved
 .build
+.DS_Store
 
 .docker.build
 **/.env

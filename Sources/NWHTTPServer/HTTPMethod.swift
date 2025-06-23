@@ -6,58 +6,58 @@
 //
 
 public struct HTTPMethod: RawRepresentable, Hashable {
-  
-  public let rawValue : String
-  
-  @inlinable
-  public init(rawValue string: String) { rawValue = string  }
+
+    public let rawValue: String
+
+    @inlinable
+    public init(rawValue string: String) { rawValue = string }
 }
 
 extension HTTPMethod: CustomStringConvertible {
-  @inlinable
-  public var description: String { return rawValue }
+    @inlinable
+    public var description: String { return rawValue }
 }
 
 @inlinable
-public func ==(lhs: HTTPMethod, rhs: String) -> Bool {
-  return lhs.rawValue == rhs
+public func == (lhs: HTTPMethod, rhs: String) -> Bool {
+    return lhs.rawValue == rhs
 }
 @inlinable
-public func ==(lhs: String, rhs: HTTPMethod) -> Bool {
-  return lhs == rhs.rawValue
+public func == (lhs: String, rhs: HTTPMethod) -> Bool {
+    return lhs == rhs.rawValue
 }
 
-public extension HTTPMethod {
-  static let GET         : HTTPMethod = "GET"
-  static let POST        : HTTPMethod = "POST"
-  static let MKCALENDAR  : HTTPMethod = "MKCALENDAR"
-  static let DELETE      : HTTPMethod = "DELETE"
-  static let HEAD        : HTTPMethod = "HEAD"
-  static let PUT         : HTTPMethod = "PUT"
-  static let CONNECT     : HTTPMethod = "CONNECT"
-  static let OPTIONS     : HTTPMethod = "OPTIONS"
-  static let TRACE       : HTTPMethod = "TRACE"
-  static let COPY        : HTTPMethod = "COPY"
-  static let LOCK        : HTTPMethod = "LOCK"
-  static let MKCOL       : HTTPMethod = "MKCOL"
-  static let MOVE        : HTTPMethod = "MOVE"
-  static let PROPFIND    : HTTPMethod = "PROPFIND"
-  static let PROPPATCH   : HTTPMethod = "PROPPATCH"
-  static let SEARCH      : HTTPMethod = "SEARCH"
-  static let UNLOCK      : HTTPMethod = "UNLOCK"
-  static let REPORT      : HTTPMethod = "REPORT"
-  static let MKACTIVITY  : HTTPMethod = "MKACTIVITY"
-  static let CHECKOUT    : HTTPMethod = "CHECKOUT"
-  static let MERGE       : HTTPMethod = "MERGE"
-  static let MSEARCH     : HTTPMethod = "MSEARCH"
-  static let NOTIFY      : HTTPMethod = "NOTIFY"
-  static let SUBSCRIBE   : HTTPMethod = "SUBSCRIBE"
-  static let UNSUBSCRIBE : HTTPMethod = "UNSUBSCRIBE"
-  static let PATCH       : HTTPMethod = "PATCH"
-  static let PURGE       : HTTPMethod = "PURGE"
+extension HTTPMethod {
+    public static let GET: HTTPMethod = "GET"
+    public static let POST: HTTPMethod = "POST"
+    public static let MKCALENDAR: HTTPMethod = "MKCALENDAR"
+    public static let DELETE: HTTPMethod = "DELETE"
+    public static let HEAD: HTTPMethod = "HEAD"
+    public static let PUT: HTTPMethod = "PUT"
+    public static let CONNECT: HTTPMethod = "CONNECT"
+    public static let OPTIONS: HTTPMethod = "OPTIONS"
+    public static let TRACE: HTTPMethod = "TRACE"
+    public static let COPY: HTTPMethod = "COPY"
+    public static let LOCK: HTTPMethod = "LOCK"
+    public static let MKCOL: HTTPMethod = "MKCOL"
+    public static let MOVE: HTTPMethod = "MOVE"
+    public static let PROPFIND: HTTPMethod = "PROPFIND"
+    public static let PROPPATCH: HTTPMethod = "PROPPATCH"
+    public static let SEARCH: HTTPMethod = "SEARCH"
+    public static let UNLOCK: HTTPMethod = "UNLOCK"
+    public static let REPORT: HTTPMethod = "REPORT"
+    public static let MKACTIVITY: HTTPMethod = "MKACTIVITY"
+    public static let CHECKOUT: HTTPMethod = "CHECKOUT"
+    public static let MERGE: HTTPMethod = "MERGE"
+    public static let MSEARCH: HTTPMethod = "MSEARCH"
+    public static let NOTIFY: HTTPMethod = "NOTIFY"
+    public static let SUBSCRIBE: HTTPMethod = "SUBSCRIBE"
+    public static let UNSUBSCRIBE: HTTPMethod = "UNSUBSCRIBE"
+    public static let PATCH: HTTPMethod = "PATCH"
+    public static let PURGE: HTTPMethod = "PURGE"
 }
 
 extension HTTPMethod: ExpressibleByStringLiteral {
-  @inlinable
-  public init(stringLiteral string: String) { self.init(rawValue: string) }
+    @inlinable
+    public init(stringLiteral string: String) { self.init(rawValue: string) }
 }
