@@ -3,6 +3,7 @@
 Package.resolved
 .build
 .DS_Store
+.vscode
 
 .docker.build
 **/.env
