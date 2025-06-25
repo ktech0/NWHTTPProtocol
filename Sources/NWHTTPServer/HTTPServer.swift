@@ -56,6 +56,7 @@ public final class HTTPServer {
         port: NWEndpoint.Port = 8000,
         tcpOptions: NWProtocolTCP.Options? = nil,
         queue: DispatchQueue = .main,
+        bonjourType: String? = nil,
         handler: @escaping (IncomingMessage, ServerResponse) throws -> Void
     ) throws {
         self.queue = queue
@@ -82,6 +83,9 @@ public final class HTTPServer {
         }()
 
         listener = try NWListener(using: params, on: port)
+        if let _bonjourType = bonjourType {
+            listener.service = NWListener.Service(type: _bonjourType)
+        }
     }
 
     /**
