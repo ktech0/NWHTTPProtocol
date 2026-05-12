@@ -393,16 +393,23 @@ open class ServerResponse {
     open func sendFile(atPath path: String) -> Bool {
         let fileManager = FileManager.default
         guard fileManager.fileExists(atPath: path),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: path))
-        else {
+              let attributes = try? fileManager.attributesOfItem(atPath: path),
+              let fileSize = attributes[.size] as? Int64,
+              let fileHandle = try? FileHandle(forReadingFrom: URL(fileURLWithPath: path)) else {
             return false
         }
 
         let mimeType = getMimeType(forPath: path)
         headers["Content-Type"] = mimeType
-        headers["Content-Length"] = "\(data.count)"
+        headers["Content-Length"] = "\(fileSize)"
 
-        write(data)
+        let chunkSize = 64 * 1024
+        while true {
+            let data = fileHandle.readData(ofLength: chunkSize)
+            if data.isEmpty { break }
+            write(data)
+        }
+        try? fileHandle.close()
         end()
         return true
     }
